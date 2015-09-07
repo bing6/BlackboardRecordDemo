@@ -15,6 +15,7 @@
 		37EF89171B9D916D00397429 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37EF89161B9D916D00397429 /* Images.xcassets */; };
 		37EF891A1B9D916D00397429 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EF89181B9D916D00397429 /* LaunchScreen.xib */; };
 		37EF89261B9D916E00397429 /* BlackboardRecordDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF89251B9D916E00397429 /* BlackboardRecordDemoTests.m */; };
+		37EF89361B9D936300397429 /* UIView+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF89351B9D936300397429 /* UIView+KS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,9 @@
 		37EF891F1B9D916E00397429 /* BlackboardRecordDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackboardRecordDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF89241B9D916E00397429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37EF89251B9D916E00397429 /* BlackboardRecordDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackboardRecordDemoTests.m; sourceTree = "<group>"; };
+		37EF89331B9D92F000397429 /* BlackboardRecord.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlackboardRecord.pch; sourceTree = "<group>"; };
+		37EF89341B9D936300397429 /* UIView+KS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KS.h"; sourceTree = "<group>"; };
+		37EF89351B9D936300397429 /* UIView+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KS.m"; sourceTree = "<group>"; };
 		8B886603232FA28D02F14D52 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D00E900E6BB2B310B4DFCB48 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,6 +136,9 @@
 			children = (
 				37EF89301B9D91AF00397429 /* assets */,
 				37EF89311B9D91AF00397429 /* BlackboardRecord */,
+				37EF89331B9D92F000397429 /* BlackboardRecord.pch */,
+				37EF89341B9D936300397429 /* UIView+KS.h */,
+				37EF89351B9D936300397429 /* UIView+KS.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -302,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37EF89361B9D936300397429 /* UIView+KS.m in Sources */,
 				37EF89121B9D916D00397429 /* ViewController.m in Sources */,
 				37EF890F1B9D916D00397429 /* AppDelegate.m in Sources */,
 				37EF890C1B9D916D00397429 /* main.m in Sources */,
@@ -431,6 +439,7 @@
 			baseConfigurationReference = 8B886603232FA28D02F14D52 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = src/BlackboardRecord.pch;
 				INFOPLIST_FILE = BlackboardRecordDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,6 +451,7 @@
 			baseConfigurationReference = 0745885FFCFE439FEE4FD944 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = src/BlackboardRecord.pch;
 				INFOPLIST_FILE = BlackboardRecordDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
