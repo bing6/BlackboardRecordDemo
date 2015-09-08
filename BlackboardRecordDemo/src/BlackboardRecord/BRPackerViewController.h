@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BRPackerViewController.h
 //  BlackboardRecordDemo
 //
 //  Created by bing.hao on 15/9/7.
@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BRPackerViewController.h"
 
-@interface ViewController : BRPackerViewController
-
+@interface BRPackerViewController : UIViewController
 
 @end
-
