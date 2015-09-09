@@ -36,6 +36,7 @@
     DTM_SHARE.logEnabled = YES;
     
     self.navigationController.navigationBar.translucent = NO;
+    self.title = @"板书录制";
     
     self.dataSource = [NSMutableArray new];
     self.tableView = [[UITableView alloc] init];
