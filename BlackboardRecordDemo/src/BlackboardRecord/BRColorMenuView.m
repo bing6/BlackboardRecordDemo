@@ -88,6 +88,17 @@
 
 - (void)widthButtonClickHandler:(UIButton *)sender
 {
+    UIButton *btn1 = (id)[self viewWithTag:801];
+    UIButton *btn2 = (id)[self viewWithTag:802];
+    
+    if ([btn1 isEqual:sender]) {
+        [btn1 setSelected:YES];
+        [btn2 setSelected:NO];
+    } else {
+        [btn1 setSelected:NO];
+        [btn2 setSelected:YES];
+    }
+    
     if ([self.delegate respondsToSelector:@selector(colorMenuView:selectWidth:)]) {
         [self.delegate colorMenuView:self selectWidth:sender.tag == 801 ? kDM_WIDTH_FINE : kDM_WIDTH_THICK];
     }
