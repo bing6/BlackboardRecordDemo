@@ -267,14 +267,15 @@
 
 - (void)didMoveToSuperview
 {
-    KS_WS(ws);
-
-    [self mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(ws.superview);
-        make.left.equalTo(ws.superview);
-        make.right.equalTo(ws.superview);
-        make.height.mas_equalTo(@64);
-    }];
+    if (self.superview) {
+        KS_WS(ws);
+        [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(ws.superview);
+            make.left.equalTo(ws.superview);
+            make.right.equalTo(ws.superview);
+            make.height.mas_equalTo(@64);
+        }];
+    }
 }
 
 #pragma mark -

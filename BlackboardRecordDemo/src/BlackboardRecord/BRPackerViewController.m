@@ -17,6 +17,7 @@
 #import "BRXUtil.h"
 #import "BRXScreenCapture.h"
 #import "BRXRecordAudio.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface BRPackerViewController ()
 <
@@ -50,22 +51,15 @@
 @implementation BRPackerViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    
-    //创建存储目录
-    [BRXUtil createCacheDirectory];
-    //检测是否支持录音
-    [self checkAudio];
-    
-    _audioRecord = [BRXRecordAudio new];
-    _videoRecord = [BRXScreenCapture new];
-    
-    _videoRecord.delegate    = self;
-    _videoRecord.captureView = self.page;
     
     //设置属性
     [self.navigationController setNavigationBarHidden:YES];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    //初始化录制对象
+    [self initRecordObject];
     
     //添加view
     [self.view addSubview:self.navigationBar];
@@ -75,11 +69,28 @@
     
     //显示放大板
     [self setDisplayBoard:YES];
+    
     //添加长按手势，用于区别是否选中了图片
     [self addLongPressGestureRecognizer];
 }
 
 #pragma mark -
+
+- (void)initRecordObject
+{
+    KS_DISPATCH_GLOBAL_QUEUE(^{
+        //创建存储目录
+        [BRXUtil createCacheDirectory];
+        //检测是否支持录音
+        [self checkAudio];
+    });
+
+    _audioRecord = [BRXRecordAudio new];
+    _videoRecord = [BRXScreenCapture new];
+    
+    _videoRecord.delegate    = self;
+    _videoRecord.captureView = self.page;
+}
 
 - (void)checkAudio
 {
@@ -114,6 +125,13 @@
 - (void)bindEvent:(id)obj action:(SEL)action
 {
     [obj addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+}
+
+#pragma mark -
+
+- (CGFloat)videoDuration
+{
+    return _videoRecord.durationCounter;
 }
 
 #pragma mark -
@@ -212,6 +230,10 @@
     self.menu2.hidden = YES;
     self.menu3.hidden = YES;
     self.page.userInteractionEnabled = YES;
+    
+    if ([self.delegate respondsToSelector:@selector(packerViewControllerDidCancel:)]) {
+        [self.delegate packerViewControllerDidCancel:self];
+    }
 }
 
 - (void)addButtonHandler:(UIButton *)sender
@@ -319,6 +341,7 @@
     
     if (_videoRecord.isRecordFile) {
         [_videoRecord finishedRecord];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
 }
 
@@ -410,19 +433,19 @@
     NSString *mp4Path = KS_PATH_CACHE_FORMAT(@"/%f.mp4", name);
     NSString *jpgPath = KS_PATH_CACHE_FORMAT(@"/%f.jpg", name);
     
+    KS_WS(ws);
+    
     [BRXUtil mergerWithOutputPath:mp4Path tbumbnail:jpgPath sucess:^{
         
-        NSLog(@"OK....");
-//        NSDictionary * data = @{ @"video_path" : output, @"image_path" : output2 };
-//        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"BlackboardSuccess" object:data];
-//        
-//        runDispatchGetMainQueue(^{
-//            [self dismissViewControllerAnimated:YES completion:nil];
-//        });
-        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            KS_DISPATCH_MAIN_QUEUE(^{
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            });
+            if ([ws.delegate respondsToSelector:@selector(packerViewControllerDidComplete:video:image:)]) {
+                [ws.delegate packerViewControllerDidComplete:ws video:mp4Path image:jpgPath];
+            }
+        });
     } failer:^(NSError *error) {
-        
         NSLog(@"%@", error);
     }];
 }

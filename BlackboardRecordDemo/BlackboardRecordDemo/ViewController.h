@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BRPackerViewController.h"
 
-@interface ViewController : BRPackerViewController
+@interface ViewController : UIViewController
 
 
 @end

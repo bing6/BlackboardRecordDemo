@@ -54,6 +54,9 @@
 		3700E92A1B9EDD4200AF7E06 /* BRXUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3700E9251B9EDD4200AF7E06 /* BRXUtil.m */; };
 		3700E92B1B9EDD4200AF7E06 /* BRXScreenCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3700E9271B9EDD4200AF7E06 /* BRXScreenCapture.m */; };
 		3700E92C1B9EDD4200AF7E06 /* BRXRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3700E9291B9EDD4200AF7E06 /* BRXRecordAudio.m */; };
+		372F63801B9FC6B100A595A3 /* AssetsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 372F637F1B9FC6B100A595A3 /* AssetsEntity.m */; };
+		372F63861B9FD69400A595A3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372F63851B9FD69400A595A3 /* MediaPlayer.framework */; };
+		372F63881BA0016C00A595A3 /* KSRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 372F63871BA0016C00A595A3 /* KSRefresh.bundle */; };
 		37EF890C1B9D916D00397429 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF890B1B9D916D00397429 /* main.m */; };
 		37EF890F1B9D916D00397429 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF890E1B9D916D00397429 /* AppDelegate.m */; };
 		37EF89121B9D916D00397429 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF89111B9D916D00397429 /* ViewController.m */; };
@@ -137,6 +140,11 @@
 		3700E9271B9EDD4200AF7E06 /* BRXScreenCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRXScreenCapture.m; sourceTree = "<group>"; };
 		3700E9281B9EDD4200AF7E06 /* BRXRecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRXRecordAudio.h; sourceTree = "<group>"; };
 		3700E9291B9EDD4200AF7E06 /* BRXRecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRXRecordAudio.m; sourceTree = "<group>"; };
+		372F637E1B9FC6B100A595A3 /* AssetsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsEntity.h; sourceTree = "<group>"; };
+		372F637F1B9FC6B100A595A3 /* AssetsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsEntity.m; sourceTree = "<group>"; };
+		372F63831B9FD66800A595A3 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		372F63851B9FD69400A595A3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		372F63871BA0016C00A595A3 /* KSRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KSRefresh.bundle; sourceTree = "<group>"; };
 		37EF89061B9D916D00397429 /* BlackboardRecordDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackboardRecordDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF890A1B9D916D00397429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37EF890B1B9D916D00397429 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372F63861B9FD69400A595A3 /* MediaPlayer.framework in Frameworks */,
 				30C0A8AF0ABF6E2E5BBD796C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +239,22 @@
 			name = Record;
 			sourceTree = "<group>";
 		};
+		372F63811B9FC73D00A595A3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				372F637E1B9FC6B100A595A3 /* AssetsEntity.h */,
+				372F637F1B9FC6B100A595A3 /* AssetsEntity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		372F63821B9FCD5200A595A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		37EF88FD1B9D916D00397429 = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +279,8 @@
 		37EF89081B9D916D00397429 /* BlackboardRecordDemo */ = {
 			isa = PBXGroup;
 			children = (
+				372F63821B9FCD5200A595A3 /* View */,
+				372F63811B9FC73D00A595A3 /* Entity */,
 				37EF890D1B9D916D00397429 /* AppDelegate.h */,
 				37EF890E1B9D916D00397429 /* AppDelegate.m */,
 				37EF89101B9D916D00397429 /* ViewController.h */,
@@ -269,6 +296,7 @@
 		37EF89091B9D916D00397429 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				372F63871BA0016C00A595A3 /* KSRefresh.bundle */,
 				37EF890A1B9D916D00397429 /* Info.plist */,
 				37EF890B1B9D916D00397429 /* main.m */,
 			);
@@ -385,6 +413,8 @@
 		BDC3F5A14DB9B743C0678EDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				372F63851B9FD69400A595A3 /* MediaPlayer.framework */,
+				372F63831B9FD66800A595A3 /* VideoToolbox.framework */,
 				D00E900E6BB2B310B4DFCB48 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -504,6 +534,7 @@
 				3700E8F41B9E916400AF7E06 /* icon-Cpen3@2x.png in Resources */,
 				3700E91B1B9EC83F00AF7E06 /* Fine-pen@2x.png in Resources */,
 				3700E8F31B9E916400AF7E06 /* icon-Cpen2@2x.png in Resources */,
+				372F63881BA0016C00A595A3 /* KSRefresh.bundle in Resources */,
 				3700E8E21B9E8A8E00AF7E06 /* bpv_bg@2x.png in Resources */,
 				3700E8F71B9E916400AF7E06 /* st-icon-Cpen2@2x.png in Resources */,
 				3700E9081B9EC2B400AF7E06 /* bg_Add@2x.png in Resources */,
@@ -573,6 +604,7 @@
 				37EF89121B9D916D00397429 /* ViewController.m in Sources */,
 				3700E9001B9EC0D300AF7E06 /* BRElemntMenuView.m in Sources */,
 				3700E9011B9EC0D300AF7E06 /* BRColorMenuView.m in Sources */,
+				372F63801B9FC6B100A595A3 /* AssetsEntity.m in Sources */,
 				3700E92C1B9EDD4200AF7E06 /* BRXRecordAudio.m in Sources */,
 				37EF890F1B9D916D00397429 /* AppDelegate.m in Sources */,
 				3700E8E01B9E882300AF7E06 /* BRPageView.m in Sources */,
