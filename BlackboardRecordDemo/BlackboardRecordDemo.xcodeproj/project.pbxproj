@@ -480,6 +480,7 @@
 				TargetAttributes = {
 					37EF89051B9D916D00397429 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 6S9X8Y84LR;
 					};
 					37EF891E1B9D916E00397429 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -745,6 +746,7 @@
 			baseConfigurationReference = 8B886603232FA28D02F14D52 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = src/BlackboardRecord.pch;
 				INFOPLIST_FILE = BlackboardRecordDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -757,6 +759,7 @@
 			baseConfigurationReference = 0745885FFCFE439FEE4FD944 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = src/BlackboardRecord.pch;
 				INFOPLIST_FILE = BlackboardRecordDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
