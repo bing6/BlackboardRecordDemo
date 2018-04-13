@@ -1,0 +1,26 @@
+PODS:
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - FMDBDataTable (0.5):
+    - FMDB (~> 2.5)
+  - KSRefresh (0.3)
+  - Masonry (0.6.2)
+  - MBProgressHUD (0.9.1)
+
+DEPENDENCIES:
+  - FMDBDataTable (~> 0.4)
+  - KSRefresh (~> 0.3)
+  - Masonry (~> 0.6.1)
+  - MBProgressHUD (~> 0.9.1)
+
+SPEC CHECKSUMS:
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  FMDBDataTable: 016b14c3c0770113259f825b76560e74e28f0df0
+  KSRefresh: 2ed7cf6bf002dc02dfbe1adda56e0f84b7d4543d
+  Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+
+COCOAPODS: 0.36.0
