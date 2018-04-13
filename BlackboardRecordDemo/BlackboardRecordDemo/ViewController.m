@@ -11,6 +11,7 @@
 #import "AssetsEntity.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <KSRefresh/UIScrollView+KS.h>
+#import "DBSet.h"
 
 @interface ViewController ()
 <
@@ -32,8 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    DTM_SHARE.logEnabled = YES;
     
     self.navigationController.navigationBar.translucent = NO;
     self.title = @"板书录制";
@@ -82,7 +81,12 @@
 
 - (void)reloadDataWithPage:(NSInteger)page
 {
-    NSArray * result = [AssetsEntity query].orderByDesc(@"createdAt").limit(page, 15).fetchArray();
+    //NSArray * result = [AssetsEntity query].orderByDesc(@"createdAt").limit(page, 15).fetchArray();
+    
+    FMDTSelectCommand *cmd = [[DBSet shared].assets createSelectCommand];
+    cmd.limit = 15;
+    cmd.skip = page - 1 * 15;
+    NSArray *result = [[cmd orderByDescending:@"createdAt"] fetchArray];
     
     if (page == 0) {
         [self.dataSource removeAllObjects];
@@ -108,12 +112,16 @@
 {
     AssetsEntity *entity = [AssetsEntity new];
     
-    entity.author    = @"Howard";
+    entity.author    = @"Bing";
     entity.videoPath = vpath;
     entity.imagePath = ipath;
     entity.duration  = sender.videoDuration;
+    entity.createdAt = [[NSDate date] timeIntervalSince1970];
     
-    [entity save];
+    FMDTInsertCommand *cmd = [[DBSet shared].assets createInsertCommand];
+    [cmd add:entity];
+    [cmd saveChanges];
+    
     [self reloadDataWithPage:1];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -144,7 +152,7 @@
     }
     
     AssetsEntity *entity = [self.dataSource objectAtIndex:indexPath.row];
-    NSDate *crated = [NSDate dateWithTimeIntervalSince1970:[entity.createdAt doubleValue]];
+    NSDate *crated = [NSDate dateWithTimeIntervalSince1970:entity.createdAt];
     NSString *fileName = [[entity.imagePath componentsSeparatedByString:@"/"] lastObject];
     NSString *path = KS_PATH_CACHE_FORMAT(@"/%@", fileName);
     
@@ -202,7 +210,10 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         AssetsEntity *entity = [self.dataSource objectAtIndex:indexPath.row];
-        [entity destroy];
+        
+        FMDTDeleteCommand *cmd = [DBSet.shared.assets createDeleteCommand];
+        [cmd where:@"assetsId" equalTo:entity.assetsId];
+        [cmd saveChanges];
         [self.dataSource removeObject:entity];
         [self.tableView reloadData];
     }
@@ -220,7 +231,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         KS_DISPATCH_MAIN_QUEUE(^{
             [self reloadDataWithPage:self.pageNumber + 1];
-            [self.tableView.footer setState:RefreshViewStateDefault];
+            [self.tableView.footer setState:KSRefreshViewStateDefault];
         });
     });
 }

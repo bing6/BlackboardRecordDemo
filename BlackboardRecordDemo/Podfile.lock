@@ -1,26 +1,34 @@
 PODS:
-  - FMDB (2.5):
-    - FMDB/standard (= 2.5)
-  - FMDB/common (2.5)
-  - FMDB/standard (2.5):
-    - FMDB/common
-  - FMDBDataTable (0.5):
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - FMDBDataTable (2.2):
     - FMDB (~> 2.5)
-  - KSRefresh (0.3)
-  - Masonry (0.6.2)
-  - MBProgressHUD (0.9.1)
+  - KSRefresh (0.4.1)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.0.0)
 
 DEPENDENCIES:
-  - FMDBDataTable (~> 0.4)
-  - KSRefresh (~> 0.3)
-  - Masonry (~> 0.6.1)
-  - MBProgressHUD (~> 0.9.1)
+  - FMDBDataTable
+  - KSRefresh
+  - Masonry
+  - MBProgressHUD
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - FMDB
+    - FMDBDataTable
+    - KSRefresh
+    - Masonry
+    - MBProgressHUD
 
 SPEC CHECKSUMS:
-  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  FMDBDataTable: 016b14c3c0770113259f825b76560e74e28f0df0
-  KSRefresh: 2ed7cf6bf002dc02dfbe1adda56e0f84b7d4543d
-  Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  FMDBDataTable: 1dccb4366139ac5e76b4d49ed579478385ed6828
+  KSRefresh: 90680431147d3b25fdc658cfa9d85c47bd963934
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
 
-COCOAPODS: 0.36.0
+PODFILE CHECKSUM: 764737db53bc652c65cd5ba4e8e41b245f415f28
+
+COCOAPODS: 1.5.0.beta.1

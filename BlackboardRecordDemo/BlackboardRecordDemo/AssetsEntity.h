@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FMDBDataTable/FMDataTable+Query.h>
+#import <FMDBDataTable/FMDTObject.h>
 
-@interface AssetsEntity : FMDataTable
+@interface AssetsEntity : FMDTObject
 
+@property (nonatomic, strong) NSString *assetsId;
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *videoPath;
 @property (nonatomic, strong) NSString *imagePath;
 @property (nonatomic, assign) double    duration;
+@property (nonatomic, assign) double createdAt;
 
 @end

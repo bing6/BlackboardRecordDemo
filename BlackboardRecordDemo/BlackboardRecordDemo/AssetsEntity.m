@@ -11,4 +11,13 @@
 
 @implementation AssetsEntity
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.assetsId = FMDT_UUID();
+    }
+    return self;
+}
+
 @end

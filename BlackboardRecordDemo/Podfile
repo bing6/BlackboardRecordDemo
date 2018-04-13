@@ -2,9 +2,9 @@ platform:ios,'7.0'
 
 target 'BlackboardRecordDemo' do
     
-pod 'Masonry', '~> 0.6.1'
-pod 'FMDBDataTable', '~> 0.4'
-pod 'MBProgressHUD', '~> 0.9.1'
-pod 'KSRefresh', '~> 0.3'
+pod 'Masonry'
+pod 'FMDBDataTable'
+pod 'MBProgressHUD'
+pod 'KSRefresh'
 
 end
