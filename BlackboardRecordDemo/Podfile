@@ -1,6 +1,6 @@
 platform:ios,'7.0'
 
-target 'DeweyLive' do
+target 'BlackboardRecordDemo' do
     
 pod 'Masonry', '~> 0.6.1'
 pod 'FMDBDataTable', '~> 0.4'
